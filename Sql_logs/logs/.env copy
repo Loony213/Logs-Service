@@ -1,0 +1,7 @@
+SQL_SERVER_HOST=auth-db.cnck2sieyjue.us-east-1.rds.amazonaws.com
+SQL_SERVER_DB=auth_db
+SQL_SERVER_USER=admin
+SQL_SERVER_PASSWORD=Distribuida123
+
+ELASTICSEARCH_URL=https://c88e7d5c189948618f6af6ad1ee9120e.us-central1.gcp.cloud.es.io:443
+ELASTICSEARCH_API_KEY=U3pUWDBaY0I5MklodHFuaXFkbFY6ZUJrcUJRbEF1bzdGb0tFdENFRDQzUQ==
