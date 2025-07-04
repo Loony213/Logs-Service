@@ -21,7 +21,7 @@ jobs:
 
     - name: Build Docker images for logs services
       run: |
-        docker build -t kamartinez/sql-logs .Sql_logs
+        docker build -t kamartinez/sql-logs ./Sql_logs
 
     - name: Push images to Docker Hub
       run: |
