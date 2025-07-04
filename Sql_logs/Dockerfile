@@ -1,17 +1,25 @@
-# Usar una imagen base de Python
 FROM python:3.10-slim
 
-# Establecer el directorio de trabajo dentro del contenedor
+RUN apt-get update && apt-get install -y \
+    gnupg2 \
+    curl \
+    apt-transport-https \
+    unixodbc \
+    unixodbc-dev \
+    gcc \
+    g++ \
+    && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && apt-get update \
+    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
-# Copiar los archivos de tu proyecto al contenedor
 COPY . /app
 
-# Instalar las dependencias
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Exponer el puerto en el que la app Flask estará corriendo
 EXPOSE 5000
 
-# Comando para ejecutar la aplicación Flask
 CMD ["python", "app.py"]
