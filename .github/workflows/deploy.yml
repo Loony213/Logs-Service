@@ -45,5 +45,5 @@ jobs:
           docker pull kamartinez/sql-logs
           docker pull kamartinez/time
 
-          docker run -d --name sql-logs -p 5000:5000 kamartinez/sql-logs
-          docker run -d --name time -p 5001:5001 kamartinez/time
+          docker run -d --name sql-logs -p 5000:5000 --restart unless-stopped kamartinez/sql-logs
+          docker run -d --name time -p 5001:5001 --restart unless-stopped kamartinez/time
