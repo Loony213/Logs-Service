@@ -1,0 +1,6 @@
+Flask
+pyodbc
+flask-cors
+python-dotenv
+elasticsearch
+

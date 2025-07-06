@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Logs a Elasticsearch</title>
+</head>
+<body>
+    <h1>Subir Logs a Elasticsearch</h1>
+    
+    <button id="load-logs-btn">Cargar Logs</button>
+    
+    <p id="status"></p>
+
+    <script>
+        document.getElementById('load-logs-btn').addEventListener('click', function() {
+            document.getElementById('status').innerText = "Cargando logs...";
+
+            fetch('http://localhost:5000/load_logs', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('status').innerText = data.message;
+            })
+            .catch(error => {
+                document.getElementById('status').innerText = "Error al cargar los logs: " + error.message;
+            });
+        });
+    </script>
+</body>
+</html>
